@@ -1,0 +1,24 @@
+service: serverless-test
+frameworkVersion: "3"
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+
+functions:
+  get_endpoint:
+    handler: handlers/get.handler
+    events:
+      - http:
+          path: /
+          method: get
+  post_endpoint:
+    handler: handlers/post.handler
+    events:
+      - http:
+          path: /
+          method: post
